@@ -1,0 +1,24 @@
+import "./App.css";
+import Header from "./components/Header";
+import Information from "./components/Information";
+import Projects from "./components/Projects";
+import Footer from "./components/Footer";
+import { useSelector } from "react-redux";
+function App() {
+  const tema = useSelector((state) => state.theme);
+
+  return (
+    <div
+      className={`${
+        tema == true ? "dark h-screen w-screen" : "h-screen w-screen"
+      } `}
+    >
+      <Header />
+      <Information />
+      <Projects />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
