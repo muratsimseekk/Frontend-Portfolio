@@ -41,14 +41,14 @@ export function reducer(
 ) {
   switch (action.type) {
     case CHANGE_THEME:
-      const newState = { ...state, theme: !state.theme };
+      const newState = { ...state, theme: action.payload };
       localStorageWrite(s12frontendChallengeKey, newState);
       return newState;
 
     case CHANGE_LANGUAGE:
       const updatedState = {
         ...state,
-        language: state.language == "en" ? "tr" : "en",
+        language: state.language === "en" ? "tr" : "en",
       };
       localStorageWrite(s12frontendChallengeKey, updatedState);
       return updatedState;

@@ -8,11 +8,26 @@ import almilaFoto from "../photos/foto.jpg";
 import { datalar } from "../store/data";
 import { useDispatch, useSelector } from "react-redux";
 import { languageChange, themeChange } from "../store/action";
+import axios from "axios";
 function Header() {
   const dispatch = useDispatch();
   const tema = useSelector((state) => state.theme);
   const dil = useSelector((state) => state.language);
   console.log("tema", tema);
+  const handleTheme = async () => {
+    const response = await axios.post("https://reqres.in/api/theme", {
+      theme: tema ? false : true,
+    });
+    dispatch(themeChange(response.data.theme));
+    console.log("Tema degisimden gelen", response.data);
+  };
+  // const handleLanguage = async () => {
+  //   const response = await axios.post("https://reqres.in/api/language", {
+  //     language: dil,
+  //   });
+  //   dispatch(languageChange(response.data.language));
+  //   console.log("Dil degisimden gelen", response.data);
+  // };
 
   return (
     <div className="bg-zinc-100 w-full py-7 flex flex-col justify-evenly items-center dark:bg-zinc-800 dark:text-white xl:w-full relative md:gap-10 xl:flex xl:gap-12 xl:flex-col xl:justify-center ">
@@ -21,7 +36,7 @@ function Header() {
       <div className="flex flex-col items-end gap-6 justify-end md:flex md:flex-row-reverse md:justify-between md:items-center md:pt-10 md:w-3/4 lg:pt-20 lg:w-4/5 w-full xl:flex xl:flex-row xl:justify-end xl:w-3/4 xl:mx-auto ">
         <div className=" md:flex md:gap-3 xl:flex xl:gap-3 xl:border-r-2 border-zinc-500">
           <div
-            onClick={() => dispatch(themeChange())}
+            onClick={handleTheme}
             className="bg-pink-600 dark:bg-black hover:cursor-pointer dark:hover:cursor-pointer w-20 h-7  flex justify-end dark:justify-start duration-500 items-center rounded-full"
           >
             <div className="bg-amber-200 w-6 rounded-full h-[22px]"></div>

@@ -10,7 +10,9 @@ function App() {
   return (
     <div
       className={`${
-        tema == true ? "dark h-screen w-screen" : "h-screen w-screen"
+        tema == true
+          ? "dark h-screen max-w-screen-2xl"
+          : "h-screen max-w-screen-2xl"
       } `}
     >
       <Header />
