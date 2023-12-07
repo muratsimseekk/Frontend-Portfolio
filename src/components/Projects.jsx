@@ -2,12 +2,10 @@ import React from "react";
 import darkArrow from "../icons/brands/brand/darkArrow.svg";
 import lightArrow from "../icons/brands/brand/arrow-right.svg";
 import { useSelector } from "react-redux";
-import { selectData } from "../store/reducer";
 
 function Projects() {
-  const dil = useSelector((state) => state.language);
   const tema = useSelector((state) => state.theme);
-  const allData = useSelector((state) => selectData(state));
+  const allData = useSelector((state) => state.data);
   return (
     <div className="w-full bg-white dark:bg-zinc-700 dark:text-white py-8 flex flex-col  items-center">
       <div className="w-4/5 flex flex-col gap-10 ">

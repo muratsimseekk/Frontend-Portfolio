@@ -1,10 +1,9 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
-import { selectData } from "../store/reducer";
 function Information() {
   const dil = useSelector((state) => state.language);
-  const allData = useSelector((state) => selectData(state));
+  const allData = useSelector((state) => state.data);
   return (
     <div className="relative w-full h-max ">
       <div className="md:h-14 md:w-28 md:right-[10%] md:border-b-[16px] md:border-x-[16px] lg:h-20 lg:w-40 md:-top-0 xl:h-12 rounded-b-full xl:w-24 xl:right-1/4 xl:border-b-[16px] xl:border-x-[16px] xl:-top-0 border-zinc-300 dark:border-neutral-600 bg-white dark:bg-zinc-700 absolute "></div>

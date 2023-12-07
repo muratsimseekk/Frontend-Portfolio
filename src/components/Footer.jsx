@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectData } from "../store/reducer";
 function Footer() {
-  let allData = useSelector((state) => selectData(state));
+  const allData = useSelector((state) => state.data);
   console.log("select data all data", allData);
   return (
     <div className=" flex xl:flex md:py-10 dark:bg-zinc-700 justify-center">

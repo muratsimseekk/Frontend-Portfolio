@@ -9,13 +9,12 @@ import almilaFoto from "../photos/foto.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { languageChange, themeChange } from "../store/action";
 import axios from "axios";
-import { selectData } from "../store/reducer";
 function Header() {
   const dispatch = useDispatch();
   const tema = useSelector((state) => state.theme);
   const dil = useSelector((state) => state.language);
 
-  const allData = useSelector((state) => selectData(state));
+  const allData = useSelector((state) => state.data);
   console.log("allData", allData);
 
   console.log("tema", tema);
