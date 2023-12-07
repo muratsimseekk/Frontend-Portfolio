@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { CHANGE_LANGUAGE, CHANGE_THEME } from "./action";
+import { datalar } from "./data";
 
 export const s12frontendChallengeKey = "s12ch";
 
@@ -15,6 +17,7 @@ const initialValues = {
     ? true
     : false,
   language: selectedLang ? selectedLang.value : "tr",
+  data: datalar,
 };
 
 function localStorageWrite(key, data) {
@@ -34,6 +37,8 @@ export function localStorageMemory(key) {
     return initialValues;
   }
 }
+export const selectData = (state) =>
+  state.language === "en" ? state.data.en : state.data.tr;
 
 export function reducer(
   state = localStorageMemory(s12frontendChallengeKey),
@@ -46,10 +51,18 @@ export function reducer(
       return newState;
 
     case CHANGE_LANGUAGE:
+      const updatedLang = state.language === "en" ? "tr" : "en";
       const updatedState = {
         ...state,
-        language: state.language === "en" ? "tr" : "en",
+        language: updatedLang,
+        data: selectData({
+          ...state,
+          language: updatedLang,
+        }),
       };
+      console.log(selectData("selectData fonksiyonu", updatedState.language));
+      console.log(updatedState, "updated state");
+
       localStorageWrite(s12frontendChallengeKey, updatedState);
       return updatedState;
     default:

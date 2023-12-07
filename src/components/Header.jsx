@@ -5,15 +5,21 @@ import github from "../icons/brands/brand/github.jpg";
 import darkLinkedin from "../photos/brand/darkLinkedin.jpg";
 import darkGithub from "../photos/brand/github.svg";
 import almilaFoto from "../photos/foto.jpg";
-import { datalar } from "../store/data";
+// import { datalar } from "../store/data";
 import { useDispatch, useSelector } from "react-redux";
 import { languageChange, themeChange } from "../store/action";
 import axios from "axios";
+import { selectData } from "../store/reducer";
 function Header() {
   const dispatch = useDispatch();
   const tema = useSelector((state) => state.theme);
   const dil = useSelector((state) => state.language);
+
+  const allData = useSelector((state) => selectData(state));
+  console.log("allData", allData);
+
   console.log("tema", tema);
+
   const handleTheme = async () => {
     const response = await axios.post("https://reqres.in/api/theme", {
       theme: tema ? false : true,
@@ -43,8 +49,8 @@ function Header() {
           </div>
           <h1 className="uppercase mr-4 md:text-xl lg:text-lg xl:text-base flex items-center text-neutral-500 dark:text-zinc-300 tracking-widest font-semibold ">
             {tema == true
-              ? `${datalar.data[dil].themeLight}`
-              : `${datalar.data[dil].themeDark}`}
+              ? `${allData.data.themeLight}`
+              : `${allData.data.themeDark}`}
           </h1>
         </div>
         <div className="flex md:text-xl lg:text-2xl xl:text-base items-center">
@@ -54,19 +60,19 @@ function Header() {
               onClick={() => dispatch(languageChange())}
               className="text-pink-600 hover:cursor-pointer dark:hover:cursor-pointer"
             >
-              {`${datalar.data[dil].language}`}
+              {`${allData.data.language}`}
             </span>
-            {`${datalar.data[dil].toLanguage}`}
+            {`${allData.data.toLanguage}`}
           </h1>
         </div>
       </div>
       <div className="xl:flex xl:justify-center xl:items-center">
         <div className=" flex flex-col gap-8 items-center md:gap-16 lg:gap-24 xl:w-3/4 xl:flex xl:flex-row xl:gap-20 font-inter xl:tracking-widest">
           <div className="flex flex-col w-3/5 lg:w-4/5 lg:gap-16  xl:gap-10 justify-between gap-6 md:gap-10">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-light xl:text-2xl xl:text-start">{`${datalar.data[dil].greeting}`}</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-light xl:text-2xl xl:text-start">{`${allData.data.greeting}`}</h1>
             <div className="text-4xl md:text-[40px] lg:text-5xl lg:text-start lg:leading-relaxed font-normal relative xl:text-2xl text-center xl:text-start xl:w-3/5 xl:leading-relaxed z-10">
-              {`${datalar.data[dil].mySelf}`}
-              <br /> {`${datalar.data[dil].meet}`}
+              {`${allData.data.mySelf}`}
+              <br /> {`${allData.data.meet}`}
               {/* <div className="absolute top-8 -left-4 w-32 h-7 -z-10 bg-pink-600 rounded-lg"></div> */}
             </div>
             <div className="flex gap-6 lg:gap-10 xl:gap-6 lg:justify-start justify-center">
@@ -86,13 +92,13 @@ function Header() {
               </button>
             </div>
             <p className="font-medium text-lg md:text-xl md:text-center lg:text-2xl lg:text-start xl:text-base xl:font-light xl:leading-relaxed ">
-              {`${datalar.data[dil].current}`}{" "}
-              <span className="text-pink-600">{`${datalar.data[dil].freelance}`}</span>
-              {` ${datalar.data[dil].asA}`}
+              {`${allData.data.current}`}{" "}
+              <span className="text-pink-600">{`${allData.data.freelance}`}</span>
+              {` ${allData.data.asA}`}
               <span className="text-pink-600"> UX, UI, & Web Design</span>{" "}
-              {`${datalar.data[dil].project}`}
+              {`${allData.data.project}`}
               <br />
-              {`${datalar.data[dil].invite}`} -{`>`}{" "}
+              {`${allData.data.invite}`} -{`>`}{" "}
               <span className="text-pink-600 underline">
                 pratamaiosi@gmail.com
               </span>

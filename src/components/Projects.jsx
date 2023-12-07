@@ -2,21 +2,22 @@ import React from "react";
 import darkArrow from "../icons/brands/brand/darkArrow.svg";
 import lightArrow from "../icons/brands/brand/arrow-right.svg";
 import { useSelector } from "react-redux";
-import { datalar } from "../store/data";
+import { selectData } from "../store/reducer";
 
 function Projects() {
   const dil = useSelector((state) => state.language);
   const tema = useSelector((state) => state.theme);
+  const allData = useSelector((state) => selectData(state));
   return (
     <div className="w-full bg-white dark:bg-zinc-700 dark:text-white py-8 flex flex-col  items-center">
       <div className="w-4/5 flex flex-col gap-10 ">
         <div className="w-full flex justify-center items-center">
           <h2 className="text-gray-950 dark:text-white text-3xl md:text-4xl lg:text-5xl xl:text-3xl font-normal tracking-wider">
-            {`${datalar.data[dil].projects}`}
+            {`${allData.data.projects}`}
           </h2>
         </div>
         <div className="w-full flex flex-col gap-10 lg:gap-12 xl:flex xl:flex-row flex-wrap ">
-          {datalar.projectCard[dil].map((item, i) => {
+          {allData.projectCard.map((item, i) => {
             return (
               <div
                 key={i}

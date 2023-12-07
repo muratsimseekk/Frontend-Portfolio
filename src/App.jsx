@@ -4,6 +4,7 @@ import Information from "./components/Information";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import { useSelector } from "react-redux";
+import { selectData } from "./store/reducer";
 function App() {
   const tema = useSelector((state) => state.theme);
 
@@ -11,7 +12,7 @@ function App() {
     <div
       className={`${
         tema == true
-          ? "dark h-screen max-w-screen-2xl"
+          ? "dark h-screen max-w-screen-2xl "
           : "h-screen max-w-screen-2xl"
       } `}
     >

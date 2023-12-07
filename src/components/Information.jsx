@@ -1,9 +1,10 @@
 import React from "react";
 
-import { datalar } from "../store/data";
 import { useSelector } from "react-redux";
+import { selectData } from "../store/reducer";
 function Information() {
   const dil = useSelector((state) => state.language);
+  const allData = useSelector((state) => selectData(state));
   return (
     <div className="relative w-full h-max ">
       <div className="md:h-14 md:w-28 md:right-[10%] md:border-b-[16px] md:border-x-[16px] lg:h-20 lg:w-40 md:-top-0 xl:h-12 rounded-b-full xl:w-24 xl:right-1/4 xl:border-b-[16px] xl:border-x-[16px] xl:-top-0 border-zinc-300 dark:border-neutral-600 bg-white dark:bg-zinc-700 absolute "></div>
@@ -13,9 +14,9 @@ function Information() {
         <div className="w-full h-full flex items-center justify-center">
           <div className="flex flex-wrap gap-6 lg:gap-8  w-4/5 justify-center items-center xl:w-3/4 xl:h-3/4 relative xl:flex xl:justify-center xl:items-center xl:gap-6 ">
             <h1 className="absolute -top-16 md:text-5xl xl:-top-16 text-gray-950 dark:text-zinc-100 text-4xl xl:text-3xl font-normal tracking-wider">
-              {`${datalar.data[dil].skills}`}
+              {`${allData.data.skills}`}
             </h1>
-            {datalar.skillList.map((item, i) => {
+            {allData.skillList.map((item, i) => {
               return (
                 <div
                   key={i}
@@ -33,7 +34,7 @@ function Information() {
       </div>
       <div className="w-full -z-10 relative bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
         <h2 className="absolute top-6 text-4xl lg:text-5xl xl:top-6 text-gray-950 dark:text-white xl:text-3xl font-normal tracking-wider">
-          {`${datalar.data[dil].profile}`}
+          {`${allData.data.profile}`}
         </h2>
         <div className="w-4/5 py-24">
           <div className="w-full flex flex-col items-center gap-24 md:gap-12 md:items-center xl:flex xl:flex-row xl:justify-between xl:items-center">
@@ -41,12 +42,12 @@ function Information() {
               <div className="w-full h-full absolute -bottom-3 left-3 -z-20 bg-neutral-600 dark:bg-opacity-50 rounded-xl"></div>
               <div>
                 <h2 className="font-playfair text-3xl md:text-4xl xl:text-2xl text-pink-600   ">
-                  {`${datalar.data[dil].basicInfo}`}
+                  {`${allData.data.basicInfo}`}
                 </h2>
               </div>
               <div className="flex gap-4">
                 <div className="flex flex-col  justify-between gap-4 md:gap-9 text-black dark:text-white font-semibold">
-                  {datalar.profilCard[dil].map((item, i) => {
+                  {allData.profilCard.map((item, i) => {
                     return (
                       <div
                         key={i}
@@ -64,7 +65,7 @@ function Information() {
               <div className="relative">
                 <div className="bg-blue-300 absolute h-2 top-5 w-16 -left-2 md:top-6 md:h-3 md:w-20 xl:top-4 xl:h-5 xl:w-24 xl:-left-4 -z-10 rounded-md"></div>
                 <h3 className="font-playfair font-light text-2xl z-20 md:text-3xl lg:text-4xl xl:text-2xl dark:text-white">
-                  {`${datalar.data[dil].aboutMe}`}
+                  {`${allData.data.aboutMe}`}
                 </h3>
               </div>
               <div className="flex flex-col gap-12 tracking-wide md:text-xl lg:text-2xl xl:text-base font-light leading-7  dark:text-white">
