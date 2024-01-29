@@ -11,11 +11,11 @@ function Projects() {
       <div className="w-4/5 flex flex-col gap-10 ">
         <div className="w-full flex justify-center items-center">
           <h2 className="text-gray-950 dark:text-white text-3xl md:text-4xl lg:text-5xl xl:text-3xl font-normal tracking-wider">
-            {`${allData.data.projects}`}
+            {`${allData?.data.projects}`}
           </h2>
         </div>
         <div className="w-full flex flex-col gap-10 lg:gap-12 xl:flex xl:flex-row flex-wrap ">
-          {allData.projectCard.map((item, i) => {
+          {allData?.projectCard.map((item, i) => {
             return (
               <div
                 key={i}

@@ -12,7 +12,6 @@ import axios from "axios";
 function Header() {
   const dispatch = useDispatch();
   const tema = useSelector((state) => state.theme);
-  const dil = useSelector((state) => state.language);
 
   const allData = useSelector((state) => state.data);
   console.log("allData", allData);
@@ -48,8 +47,8 @@ function Header() {
           </div>
           <h1 className="uppercase mr-4 md:text-xl lg:text-lg xl:text-base flex items-center text-neutral-500 dark:text-zinc-300 tracking-widest font-semibold ">
             {tema == true
-              ? `${allData.data.themeLight}`
-              : `${allData.data.themeDark}`}
+              ? `${allData?.data.themeLight}`
+              : `${allData?.data.themeDark}`}
           </h1>
         </div>
         <div className="flex md:text-xl lg:text-2xl xl:text-base items-center">
@@ -59,9 +58,9 @@ function Header() {
               onClick={() => dispatch(languageChange())}
               className="text-pink-600 hover:cursor-pointer dark:hover:cursor-pointer"
             >
-              {`${allData.data.language}`}
+              {`${allData?.data.language}`}
             </span>
-            {`${allData.data.toLanguage}`}
+            {`${allData?.data.toLanguage}`}
           </h1>
         </div>
       </div>
@@ -70,8 +69,8 @@ function Header() {
           <div className="flex flex-col w-3/5 lg:w-4/5 lg:gap-16  xl:gap-10 justify-between gap-6 md:gap-10">
             <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-light xl:text-2xl xl:text-start">{`${allData.data.greeting}`}</h1>
             <div className="text-4xl md:text-[40px] lg:text-5xl lg:text-start lg:leading-relaxed font-normal relative xl:text-2xl text-center xl:text-start xl:w-3/5 xl:leading-relaxed z-10">
-              {`${allData.data.mySelf}`}
-              <br /> {`${allData.data.meet}`}
+              {`${allData?.data.mySelf}`}
+              <br /> {`${allData?.data.meet}`}
               {/* <div className="absolute top-8 -left-4 w-32 h-7 -z-10 bg-pink-600 rounded-lg"></div> */}
             </div>
             <div className="flex gap-6 lg:gap-10 xl:gap-6 lg:justify-start justify-center">
@@ -91,13 +90,13 @@ function Header() {
               </button>
             </div>
             <p className="font-medium text-lg md:text-xl md:text-center lg:text-2xl lg:text-start xl:text-base xl:font-light xl:leading-relaxed ">
-              {`${allData.data.current}`}{" "}
-              <span className="text-pink-600">{`${allData.data.freelance}`}</span>
-              {` ${allData.data.asA}`}
+              {`${allData?.data.current}`}{" "}
+              <span className="text-pink-600">{`${allData?.data.freelance}`}</span>
+              {` ${allData?.data.asA}`}
               <span className="text-pink-600"> UX, UI, & Web Design</span>{" "}
-              {`${allData.data.project}`}
+              {`${allData?.data.project}`}
               <br />
-              {`${allData.data.invite}`} -{`>`}{" "}
+              {`${allData?.data.invite}`} -{`>`}{" "}
               <span className="text-pink-600 underline">
                 pratamaiosi@gmail.com
               </span>
