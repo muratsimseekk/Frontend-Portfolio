@@ -11,7 +11,7 @@ function Projects() {
       <div className="w-4/5 flex flex-col gap-10 ">
         <div className="w-full flex justify-center items-center">
           <h2 className="text-gray-950 dark:text-white text-3xl md:text-4xl lg:text-5xl xl:text-3xl font-normal tracking-wider">
-            {`${allData?.data.projects}`}
+            {`${allData?.data?.projects}`}
           </h2>
         </div>
         <div className="w-full flex flex-col gap-10 lg:gap-12 xl:flex xl:flex-row flex-wrap ">
@@ -28,13 +28,13 @@ function Projects() {
                 <div className="xl:w-[90%]">
                   <div className="xl:h-2/3 w-full flex flex-col gap-8 md:gap-10 lg:gap-12 justify-between">
                     <h3 className="text-3xl md:text-4xl xl:text-3xl font-playfair font-medium tracking-wider ">
-                      {item.name}
+                      {item?.name}
                     </h3>
                     <p className="font-inter font-light tracking-wide md:text-xl lg:text-2xl xl:text-lg leading-7">
-                      {item.description}
+                      {item?.description}
                     </p>
                     <div className="flex gap-x-3 gap-y-1 w-3/4 md:gap-y-2 lg:gap-x-4 lg:gap-y-3 lg:w-3/5 xl:w-5/6 flex-wrap">
-                      {item.skills.map((yet, i) => {
+                      {item?.skills.map((yet, i) => {
                         return (
                           <p
                             key={i}
@@ -60,10 +60,10 @@ function Projects() {
                   <div className="h-28 md:h-44 lg:h-60 xl:h-40 w-full relative">
                     <div className="w-full h-full absolute top-10 md:top-16 lg:top-[90px] xl:top-1/2">
                       <div className="w-full h-full ">
-                        <img className="w-full h-full" src={item.img} />
+                        <img className="w-full h-full" src={item?.img} />
                         <img
                           className="absolute rounded-sm bg-cover h-[75%] xl:h-[76.6%] top-[7.8px] xl:w-[48%] left-[27.6%] md:left-[31.8%] lg:h-[75.6%] lg:left-[30%] lg:top-[13px] xl:top-2 xl:left-[26%]"
-                          src={item.insideImg}
+                          src={item?.insideImg}
                         />
                       </div>
                     </div>
